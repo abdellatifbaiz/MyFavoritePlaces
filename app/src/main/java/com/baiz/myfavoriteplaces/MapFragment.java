@@ -80,8 +80,17 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         criteria = new Criteria();
         provider = locationManager.getBestProvider(criteria, true);
         location = locationManager.getLastKnownLocation(provider);
-         latitude = location.getLatitude();
-         longitude = location.getLongitude();
+        if (location != null) {
+
+            latitude = location.getLatitude();
+            longitude = location.getLongitude();
+
+        }
+        else{
+            //This is what you need:
+            latitude =  33.5883100 ;
+            longitude = -7.6113800;
+        }
          my_position = new LatLng(latitude, longitude);
 
 
